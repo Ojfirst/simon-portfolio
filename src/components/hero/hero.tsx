@@ -18,7 +18,9 @@ const OperationsHero = () => {
         {/* LEFT — IDENTITY CORE */}
         <div className="glass rounded-2xl bg-white/5 backdrop-blur-xl  p-6 space-y-6">
 
-          <div className={`${lightTextColor}text-sm text-neutral-700 dark:text-neutral-300 tracking-widest`}>
+          <div className='text-sm bg-white/60 dark:bg-white/5
+backdrop-blur-xl
+ tracking-widest'>
             SYSTEM IDENTITY
           </div>
 

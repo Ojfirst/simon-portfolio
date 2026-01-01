@@ -1,12 +1,18 @@
 "use client"
 
-import { useTheme } from "next-themes"
+import { useTheme } from "../../hooks/use-theme"
+import { useState, useEffect } from "react"
 import { Sun, Moon } from "lucide-react"
 
 export function ThemeToggle() {
   const { theme, resolvedTheme, setTheme } = useTheme()
+  const [mounted, setMounted] = useState(false)
 
-  // resolvedTheme ensures correct theme even when system preference is used
+  // Ensure component only renders after mounting (client-side)
+  useEffect(() => setMounted(true), [])
+
+  if (!mounted) return null // prevents SSR mismatch
+
   const currentTheme: "light" | "dark" = resolvedTheme === "dark" ? "dark" : "light"
 
   const toggleTheme = () => {
