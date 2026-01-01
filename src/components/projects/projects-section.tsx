@@ -4,12 +4,15 @@ import { useState } from "react"
 import { projects, Project } from "@/components/projects/project.data"
 import { ExternalLink, Github } from "lucide-react"
 import { motion, AnimatePresence } from "framer-motion"
+import { JsonLd } from "../seo/json-ld"
+import { getProjectSchema } from "@/lib/schema/project-schema"
 
 export function ProjectsConsole() {
   const [active, setActive] = useState<Project>(projects[0])
 
   return (
     <section id="projects" className="max-w-7xl mx-auto px-6 py-15">
+      <JsonLd schema={getProjectSchema(active)} />
       <header className="mb-10">
         <h2 className="text-3xl font-bold text-white">Project Console</h2>
         <p className="text-neutral-400 max-w-2xl">

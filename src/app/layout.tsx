@@ -3,7 +3,6 @@ import type { Metadata } from "next"
 import { JsonLd } from "@/components/seo/json-ld"
 import { personSchema } from '@/lib/schema/person.schema';
 import { websiteSchema } from "@/lib/schema/website.schema";
-import { resumeSchema } from "@/lib/schema/resume.schema";
 import { ThemeProvider } from "next-themes"
 import { SeoPerson } from "@/components/seo/seo-person"
 import { SeoSoftware } from "@/components/seo/seo-software"
@@ -103,7 +102,6 @@ export default function RootLayout({
       <head>
         <JsonLd schema={personSchema} />
         <JsonLd schema={websiteSchema} />
-        <JsonLd schema={resumeSchema} />
       </head>
       <body className="bg-gray-950 text-gray-100">
         <SeoPerson />
