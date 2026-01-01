@@ -1,25 +1,47 @@
 import "./globals.css"
 import type { Metadata } from "next"
-import { siteConfig } from '@/lib/site-config'
+import { seo } from "@/lib/seo"
+import { Header } from "@/components/layout/header"
 
 export const metadata: Metadata = {
-  metadataBase: new URL(siteConfig.url),
-  title: {
-    default: siteConfig.name,
-    template: `%s | ${siteConfig.name}`,
-  },
-  description: siteConfig.description,
+  title: seo.title,
+  description: seo.description,
+  keywords: seo.keywords,
+  metadataBase: new URL(seo.url),
+
   openGraph: {
-    title: siteConfig.name,
-    description: siteConfig.description,
-    url: siteConfig.url,
-    siteName: siteConfig.name,
-    locale: "en_US",
+    title: seo.title,
+    description: seo.description,
+    url: seo.url,
+    siteName: seo.name,
+    images: [
+      {
+        url: seo.image,
+        width: 1200,
+        height: 630,
+        alt: seo.name,
+      },
+    ],
     type: "website",
   },
+
+  twitter: {
+    card: "summary_large_image",
+    title: seo.title,
+    description: seo.description,
+    images: [seo.image],
+  },
+
   robots: {
     index: true,
     follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      "max-image-preview": "large",
+      "max-snippet": -1,
+      "max-video-preview": -1,
+    },
   },
 }
 
@@ -30,7 +52,10 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en" suppressHydrationWarning>
-      <body>{children}</body>
+      <body className="bg-gray-950 text-gray-100">
+        <Header />
+        <main className="pt-28">{children}</main>
+      </body>
     </html>
   )
 }
