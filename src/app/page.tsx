@@ -1,12 +1,12 @@
 import { OperationsHero } from '@/components/hero/hero'
-import { ProjectsConsole } from '@/components/projects/projects-section'
+import ProjectSwitcher from '@/components/projects/project-switcher'
 
 
 export default function Home() {
   return (
     <>
       <OperationsHero />
-      <ProjectsConsole />
+      <ProjectSwitcher />
       <main className="min-h-screen flex items-center justify-center">
         <div className="glass glass-hover rounded-2xl p-6">
 

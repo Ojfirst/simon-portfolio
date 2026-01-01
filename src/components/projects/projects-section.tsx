@@ -1,112 +1,103 @@
 "use client"
 
 import { useState } from "react"
-import { projects, Project } from "@/components/projects/project.data"
-import { ExternalLink, Github, X } from "lucide-react"
+import { projects, Project } from './project.data';
+import { ExternalLink, Github } from "lucide-react"
 
 export function ProjectsConsole() {
-  const [selected, setSelected] = useState<Project | null>(null)
+  const [active, setActive] = useState<Project>(projects[0])
 
   return (
     <section
       id="projects"
-      className="max-w-7xl mx-auto px-6 py-16 space-y-12"
+      className="max-w-7xl mx-auto px-6 py-28"
     >
-      {/* Section Header */}
-      <header className="text-center space-y-3">
-        <h2 className="text-4xl font-bold text-neutral-900 dark:text-white">
-          Project Showcase
+      <header className="mb-10">
+        <h2 className="text-3xl font-bold text-white">
+          Project Console
         </h2>
-        <p className="text-neutral-700 dark:text-neutral-300 max-w-2xl mx-auto">
-          A curated view of automotive systems and modern web platforms I’ve built, each powered with production-grade code.
+        <p className="text-neutral-400 max-w-2xl">
+          A live view of systems I’ve designed and built across automotive
+          operations and modern web platforms.
         </p>
       </header>
 
-      {/* Projects Grid */}
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-        {projects.map((project) => (
-          <button
-            key={project.id}
-            onClick={() => setSelected(project)}
-            className="relative glass rounded-2xl p-6 text-left transition transform hover:scale-[1.03] hover:shadow-lg focus:outline-none"
-          >
-            {/* Project Name */}
-            <h3 className="text-xl font-semibold text-neutral-900 dark:text-white">
-              {project.name}
-            </h3>
-
-            {/* Category */}
-            <p className="text-sm text-neutral-700 dark:text-neutral-300 mt-1">
-              {project.category}
-            </p>
-
-            {/* Subtle holographic accent */}
-            <div className="absolute inset-0 pointer-events-none bg-[radial-gradient(circle_at_70%_30%,rgba(255,255,255,0.05),transparent_60%)] rounded-2xl" />
-          </button>
-        ))}
-      </div>
-
-      {/* Project Modal */}
-      {selected && (
-        <div className="fixed inset-0 z-50 flex items-center justify-center p-6 bg-black/60">
-          <div className="relative glass max-w-3xl w-full rounded-2xl p-8 overflow-y-auto max-h-[90vh]">
-            {/* Close Button */}
+      <div className="grid grid-cols-1 lg:grid-cols-[280px_1fr] gap-8">
+        {/* LEFT RAIL */}
+        <aside className="rounded-2xl border border-neutral-800 bg-white/5 backdrop-blur-xl p-4 space-y-2">
+          {projects.map((project) => (
             <button
-              onClick={() => setSelected(null)}
-              className="absolute top-4 right-4 p-2 text-neutral-500 hover:text-white"
+              key={project.id}
+              onClick={() => setActive(project)}
+              className={`w-full text-left px-4 py-3 rounded-xl transition
+                ${active.id === project.id
+                  ? "bg-white/10 text-white border border-neutral-700"
+                  : "text-neutral-400 hover:bg-white/5"
+                }
+              `}
             >
-              <X size={20} />
+              <div className="text-sm font-medium">
+                {project.name}
+              </div>
+              <div className="text-xs opacity-70">
+                {project.category}
+              </div>
             </button>
+          ))}
+        </aside>
 
-            {/* Project Details */}
-            <h3 className="text-2xl font-bold text-neutral-900 dark:text-white mb-4">
-              {selected.name}
+        {/* RIGHT PANEL */}
+        <div className="relative rounded-2xl border border-neutral-800 bg-neutral-950/70 backdrop-blur-xl p-8 overflow-hidden">
+          {/* holographic accent */}
+          <div className="absolute inset-0 pointer-events-none bg-[radial-gradient(circle_at_30%_20%,rgba(255,255,255,0.06),transparent_60%)]" />
+
+          <div className="relative space-y-6">
+            <h3 className="text-2xl font-semibold text-white">
+              {active.name}
             </h3>
-            <p className="text-neutral-700 dark:text-neutral-300 mb-4">
-              {selected.summary}
+
+            <p className="text-neutral-400 max-w-xl">
+              {active.summary}
             </p>
 
-            {/* Highlights */}
-            <ul className="mb-4 space-y-2">
-              {selected.highlights.map((item) => (
+            <ul className="space-y-2">
+              {active.highlights.map((item) => (
                 <li
                   key={item}
-                  className="text-neutral-800 dark:text-neutral-200 text-sm before:content-['▸'] before:mr-2 before:text-neutral-500"
+                  className="text-sm text-neutral-300 before:content-['▸'] before:mr-2 before:text-neutral-500"
                 >
                   {item}
                 </li>
               ))}
             </ul>
 
-            {/* Tech Stack */}
-            <div className="flex flex-wrap gap-2 mb-6">
-              {selected.stack.map((tech) => (
+            <div className="flex flex-wrap gap-2 pt-4">
+              {active.stack.map((tech) => (
                 <span
                   key={tech}
-                  className="text-xs px-3 py-1 rounded-full border border-neutral-700 text-neutral-800 dark:text-neutral-200"
+                  className="text-xs px-3 py-1 rounded-full border border-neutral-700 text-neutral-300"
                 >
                   {tech}
                 </span>
               ))}
             </div>
 
-            {/* Links */}
-            <div className="flex gap-4">
-              {selected.liveUrl && (
+            <div className="flex gap-4 pt-6">
+              {active.liveUrl && (
                 <a
-                  href={selected.liveUrl}
+                  href={active.liveUrl}
                   target="_blank"
-                  className="flex items-center gap-2 px-5 py-3 rounded-xl bg-neutral-900 dark:bg-neutral-800 border border-neutral-700 hover:bg-neutral-800 dark:hover:bg-neutral-700 transition text-white"
+                  className="flex items-center gap-2 px-5 py-3 rounded-xl bg-neutral-900 border border-neutral-700 hover:bg-neutral-800 transition text-white"
                 >
                   <ExternalLink size={18} />
-                  Live Demo
+                  Live System
                 </a>
               )}
-              {selected.githubUrl && (
+              {active.githubUrl && (
                 <a
-                  href={selected.githubUrl}
+                  href={active.githubUrl}
                   target="_blank"
-                  className="flex items-center gap-2 px-5 py-3 rounded-xl border border-neutral-700 hover:bg-neutral-100 dark:hover:bg-neutral-900 transition text-neutral-900 dark:text-white"
+                  className="flex items-center gap-2 px-5 py-3 rounded-xl border border-neutral-700 hover:bg-neutral-900 transition text-neutral-300"
                 >
                   <Github size={18} />
                   Source Code
@@ -115,7 +106,7 @@ export function ProjectsConsole() {
             </div>
           </div>
         </div>
-      )}
+      </div>
     </section>
   )
 }
