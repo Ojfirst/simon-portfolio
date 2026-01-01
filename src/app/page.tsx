@@ -2,6 +2,7 @@ import { OperationsHero } from '@/components/hero/hero'
 import ProjectSwitcher from '@/components/projects/project-switcher'
 import { ExperienceConsole } from '@/components/experienceConsole/experience-console';
 import { CapabilityMatrix } from '@/components/experienceConsole/capability-matrix/capability-matrix';
+import { ResumeConsole } from '@/components/resume-console/resume-console';
 
 
 export default function Home() {
@@ -12,6 +13,7 @@ export default function Home() {
       <ProjectSwitcher />
       <ExperienceConsole />
       <CapabilityMatrix />
+      <ResumeConsole />
     </main>
 
   )
