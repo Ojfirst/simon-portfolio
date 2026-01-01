@@ -1,5 +1,7 @@
 import "./globals.css"
 import type { Metadata } from "next"
+import { JsonLd } from "@/components/seo/json-ld"
+import { personSchema } from '@/lib/schema/person.schema'
 import { ThemeProvider } from "next-themes"
 import { SeoPerson } from "@/components/seo/seo-person"
 import { SeoSoftware } from "@/components/seo/seo-software"
@@ -96,6 +98,9 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en" suppressHydrationWarning>
+      <head>
+        <JsonLd schema={personSchema} />
+      </head>
       <body className="bg-gray-950 text-gray-100">
         <SeoPerson />
         <SeoSoftware />

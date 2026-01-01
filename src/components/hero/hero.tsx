@@ -4,6 +4,8 @@ import Image from "next/image"
 import heroImage from "../../../public/images/simon-profile.jpg"
 import { Activity, Wrench, Code2, MapPin } from "lucide-react"
 import { useTheme } from "next-themes"
+import { JsonLd } from "@/components/seo/json-ld"
+import { softwareApplicationSchema } from "@/lib/schema/software-application/schema";
 
 const OperationsHero = () => {
   const { theme } = useTheme()
@@ -13,14 +15,13 @@ const OperationsHero = () => {
 
   return (
     <section className="relative min-h-[90vh] pt-32">
+      <JsonLd schema={softwareApplicationSchema} />
       <div className="max-w-7xl mx-auto px-6 grid grid-cols-1 lg:grid-cols-2 gap-10">
 
         {/* LEFT — IDENTITY CORE */}
         <div className="glass rounded-2xl bg-white/5 backdrop-blur-xl  p-6 space-y-6">
 
-          <div className='text-sm bg-white/60 dark:bg-white/5
-backdrop-blur-xl
- tracking-widest'>
+          <div className='text-sm bg-white/60 dark:bg-white/5 backdrop-blur-xl tracking-widest'>
             SYSTEM IDENTITY
           </div>
 
