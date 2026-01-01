@@ -1,5 +1,6 @@
 import "./globals.css"
 import type { Metadata } from "next"
+import { ThemeProvider } from "next-themes"
 import { seo } from "@/lib/seo"
 import { Header } from "@/components/layout/header"
 
@@ -53,8 +54,10 @@ export default function RootLayout({
   return (
     <html lang="en" suppressHydrationWarning>
       <body className="bg-gray-950 text-gray-100">
-        <Header />
-        <main className="pt-28">{children}</main>
+        <ThemeProvider attribute="class" defaultTheme='system' enableSystem={false}>
+          <Header />
+          <main className="pt-28">{children}</main>
+        </ThemeProvider>
       </body>
     </html>
   )

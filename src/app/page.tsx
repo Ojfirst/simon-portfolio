@@ -1,10 +1,12 @@
-import Hero from '@/components/hero/hero'
+import { OperationsHero } from '@/components/hero/hero'
+import { ProjectsConsole } from '@/components/projects/projects-section'
 
 
 export default function Home() {
   return (
     <>
-      <Hero />
+      <OperationsHero />
+      <ProjectsConsole />
       <main className="min-h-screen flex items-center justify-center">
         <div className="glass glass-hover rounded-2xl p-6">
 
