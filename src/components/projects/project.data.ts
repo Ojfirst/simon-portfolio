@@ -26,4 +26,19 @@ export const projects: Project[] = [
 		liveUrl: '#',
 		githubUrl: '#',
 	},
+	{
+		id: 'autocare2',
+		name: 'Autocare Service Scheduler',
+		category: 'Automotive',
+		summary:
+			'Enterprise-grade service scheduling and operations platform for automotive dealerships.',
+		highlights: [
+			'Role-based access control',
+			'Automated service approvals',
+			'Real-time appointment orchestration',
+		],
+		stack: ['Next.js', 'Prisma', 'PostgreSQL', 'Tailwind'],
+		liveUrl: '#',
+		githubUrl: '#',
+	},
 ];

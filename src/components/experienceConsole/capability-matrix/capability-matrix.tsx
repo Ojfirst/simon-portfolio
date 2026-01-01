@@ -1,6 +1,7 @@
 "use client"
 
 import { capabilityGroups } from "./capability.data"
+import { motion } from "framer-motion"
 
 export function CapabilityMatrix() {
   return (
@@ -19,12 +20,16 @@ export function CapabilityMatrix() {
       </header>
 
       <div className="grid grid-cols-1 md:grid-cols-2 gap-10">
-        {capabilityGroups.map((group) => (
-          <div
+        {capabilityGroups.map((group, i) => (
+          <motion.div
             key={group.id}
-            className="glass rounded-2xl p-6 relative overflow-hidden"
+            className="glass rounded-2xl p-6 relative overflow-hidden hover:scale-[1.02] transition-transform duration-300"
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ delay: i * 0.1, duration: 0.5 }}
           >
-            {/* holographic layer */}
+            {/* subtle holographic layer */}
             <div className="absolute inset-0 pointer-events-none
               bg-[radial-gradient(circle_at_80%_20%,rgba(255,255,255,0.10),transparent_60%)]
               dark:bg-[radial-gradient(circle_at_80%_20%,rgba(255,255,255,0.05),transparent_60%)]
@@ -41,8 +46,8 @@ export function CapabilityMatrix() {
               </div>
 
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
-                {group.capabilities.map((capability) => (
-                  <div
+                {group.capabilities.map((capability, j) => (
+                  <motion.div
                     key={capability}
                     className="
                       rounded-xl px-4 py-3
@@ -50,14 +55,21 @@ export function CapabilityMatrix() {
                       bg-white/40 dark:bg-white/5
                       backdrop-blur-md
                       text-sm text-neutral-800 dark:text-neutral-300
+                      cursor-default
+                      hover:bg-white/60 dark:hover:bg-white/10
+                      transition-colors duration-300
                     "
+                    initial={{ opacity: 0, y: 10 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ delay: j * 0.05, duration: 0.4 }}
                   >
                     {capability}
-                  </div>
+                  </motion.div>
                 ))}
               </div>
             </div>
-          </div>
+          </motion.div>
         ))}
       </div>
     </section>
