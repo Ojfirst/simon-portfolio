@@ -1,3 +1,5 @@
+import { skills } from '@/components/skills/skills.data';
+
 export const personSchema = {
 	'@context': 'https://schema.org',
 	'@type': 'Person',
@@ -11,12 +13,7 @@ export const personSchema = {
 		'https://www.linkedin.com/in/your-linkedin',
 		'https://github.com/your-github',
 	],
-	knowsAbout: [
-		'Automotive Operations',
-		'Dealership Management Systems',
-		'Service Scheduling Software',
-		'Inventory Management Systems',
-		'Full Stack Development',
-		'Automotive SaaS',
-	],
+	knowsAbout: skills.map((skill) => ({
+		'@id': `https://yourdomain.com/#skill-${skill.id}`,
+	})),
 };
