@@ -6,6 +6,7 @@ import { useTheme } from "next-themes"
 import { motion } from "framer-motion"
 import { toast } from "sonner"
 import { useState } from "react"
+import { POST } from "@/app/api/contact/route"
 
 export function ContactSection() {
   const { theme } = useTheme()
@@ -49,7 +50,7 @@ export function ContactSection() {
     return null
   }
 
-  async function handleSubmit(e: React.FormEvent) {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
 
     const error = validate()
@@ -59,13 +60,29 @@ export function ContactSection() {
     }
 
     setLoading(true)
+    try {
+      if (!form) return toast.error('Invalid for data');
+      const res = await fetch('/api/contact', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(form),
+      })
 
-    // Simulated submission (replace with API later)
-    setTimeout(() => {
-      setLoading(false)
+      if (!res.ok) {
+        const error = await res.json()
+        throw new Error(error);
+      }
+
+      toast.success('Message successfully sent');
       setForm({ name: "", email: "", message: "" })
-      toast.success("Message sent successfully 🚀")
-    }, 1200)
+    } catch (error) {
+      if (error instanceof TypeError) {
+        toast.error(error.message || 'An unknown error occure, check your internet connection');
+      }
+      toast.error('Something went wrong!')
+    } finally {
+      setLoading(false);
+    }
   }
 
   return (

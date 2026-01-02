@@ -1,6 +1,6 @@
 import "./globals.css"
 import type { Metadata } from "next"
-import { Toaster } from "sonner";
+import { ToasterProvider } from "@/components/providers/ToasterProvider";
 import { JsonLd } from "@/components/seo/json-ld"
 import { personSchema } from '@/lib/schema/person.schema';
 import { websiteSchema } from "@/lib/schema/website.schema";
@@ -110,7 +110,7 @@ export default function RootLayout({
         <ThemeProvider attribute="class" defaultTheme='system' enableSystem={false}>
           <Header />
           <main className="pt-28">{children}</main>
-          <Toaster richColors position="bottom-right" />
+          <ToasterProvider />
         </ThemeProvider>
       </body>
     </html>
