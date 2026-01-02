@@ -42,3 +42,7 @@ export const projects: Project[] = [
 		githubUrl: '#',
 	},
 ];
+
+export function getProjectById(id: string): Project | undefined {
+	return projects.find((project) => project.id === id);
+}

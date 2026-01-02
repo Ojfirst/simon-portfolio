@@ -4,6 +4,8 @@ import { ExperienceConsole } from '@/components/experienceConsole/experience-con
 import { CapabilityMatrix } from '@/components/experienceConsole/capability-matrix/capability-matrix';
 import { ResumeConsole } from '@/components/resume-console/resume-console';
 import { SkillsSection } from '@/components/skills/SkillsSection';
+import { ArchitectureSection } from '@/components/architecture/architecture-section';
+import { ContactSection } from '@/components/contact/contact-section';
 
 
 export default function Home() {
@@ -16,6 +18,8 @@ export default function Home() {
       <CapabilityMatrix />
       <ResumeConsole />
       <SkillsSection />
+      <ArchitectureSection />
+      <ContactSection />
     </main>
 
   )
