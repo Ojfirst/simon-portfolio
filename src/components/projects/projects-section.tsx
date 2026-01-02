@@ -124,7 +124,7 @@ export function ProjectsConsole() {
                 <motion.a
                   href={active.liveUrl}
                   target="_blank"
-                  className={`flex items-center gap-2 px-5 py-3 rounded-xl border ${badgeBorder} ${badgeBg} ${textColor}`}
+                  className={`flex items-center gap-2 px-5 py-3 rounded-xl border bg-neutral-900 ${badgeBorder} text-white hover:bg-neutral-800`}
                   whileHover={{ scale: 1.03 }}
                   whileTap={{ scale: 0.97 }}
                 >
