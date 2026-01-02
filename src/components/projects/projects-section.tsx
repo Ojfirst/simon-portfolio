@@ -1,28 +1,47 @@
 "use client"
 
 import { useState } from "react"
+import { useTheme } from "next-themes"
 import { projects, Project } from "@/components/projects/project.data"
 import { ExternalLink, Github } from "lucide-react"
-import { motion, AnimatePresence } from "framer-motion"
+import { motion } from "framer-motion"
 import { JsonLd } from "../seo/json-ld"
 import { getProjectSchema } from "@/lib/schema/project-schema"
 
 export function ProjectsConsole() {
   const [active, setActive] = useState<Project>(projects[0])
+  const { theme } = useTheme()
+
+  // Theme-aware colors (same pattern as ResumeConsole)
+  const textColor = theme === "light" ? "text-neutral-900" : "text-white"
+  const subTextColor = theme === "light" ? "text-neutral-700" : "text-neutral-400"
+  const badgeBg = theme === "light" ? "bg-white/40" : "bg-white/5"
+  const badgeBorder =
+    theme === "light" ? "border-neutral-400/40" : "border-neutral-700"
+
+  const panelBg =
+    theme === "light"
+      ? "bg-white/60 border-neutral-300"
+      : "bg-neutral-950/70 border-neutral-800"
 
   return (
     <section id="projects" className="max-w-7xl mx-auto px-6 py-15">
       <JsonLd schema={getProjectSchema(active)} />
+
       <header className="mb-10">
-        <h2 className="text-3xl font-bold text-white">Project Console</h2>
-        <p className="text-neutral-400 max-w-2xl">
+        <h2 className={`text-3xl font-bold ${textColor}`}>
+          Project Console
+        </h2>
+        <p className={`${subTextColor} max-w-2xl`}>
           A live view of systems I’ve designed and built across automotive operations and modern web platforms.
         </p>
       </header>
 
       <div className="grid grid-cols-1 lg:grid-cols-[280px_1fr] gap-8">
         {/* LEFT RAIL */}
-        <aside className="rounded-2xl border border-neutral-800 bg-white/5 backdrop-blur-xl p-4 space-y-2">
+        <aside
+          className={`rounded-2xl border backdrop-blur-xl p-4 space-y-2 ${panelBg}`}
+        >
           {projects.map((project) => (
             <motion.button
               key={project.id}
@@ -32,8 +51,8 @@ export function ProjectsConsole() {
               transition={{ type: "spring", stiffness: 300, damping: 20 }}
               className={`w-full text-left px-4 py-3 rounded-xl transition
                 ${active.id === project.id
-                  ? "bg-white/10 text-white border border-neutral-700"
-                  : "text-neutral-400 hover:bg-white/5"
+                  ? `${badgeBg} ${textColor} border ${badgeBorder}`
+                  : `${subTextColor} hover:bg-white/10`
                 }`}
             >
               <div className="text-sm font-medium">{project.name}</div>
@@ -44,14 +63,13 @@ export function ProjectsConsole() {
 
         {/* RIGHT PANEL */}
         <motion.div
-          key={active.id} // animate on project change
-          className="relative rounded-2xl border border-neutral-800 bg-neutral-950/70 backdrop-blur-xl p-8 overflow-hidden"
+          key={active.id}
+          className={`relative rounded-2xl border backdrop-blur-xl p-8 overflow-hidden ${panelBg}`}
           initial={{ opacity: 0, x: 20 }}
           animate={{ opacity: 1, x: 0 }}
-          exit={{ opacity: 0, x: -20 }}
           transition={{ duration: 0.4 }}
         >
-          {/* subtle holographic accent */}
+          {/* holographic accent */}
           <motion.div
             className="absolute inset-0 pointer-events-none bg-[radial-gradient(circle_at_30%_20%,rgba(255,255,255,0.06),transparent_60%)]"
             animate={{ x: [0, 5, 0], y: [0, 3, 0] }}
@@ -59,11 +77,13 @@ export function ProjectsConsole() {
           />
 
           <div className="relative space-y-6">
-            <h3 className="text-2xl font-semibold text-white">{active.name}</h3>
+            <h3 className={`text-2xl font-semibold ${textColor}`}>
+              {active.name}
+            </h3>
 
             <motion.p
               key={active.summary}
-              className="text-neutral-400 max-w-xl"
+              className={`${subTextColor} max-w-xl`}
               initial={{ opacity: 0, y: 5 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.4 }}
@@ -75,7 +95,7 @@ export function ProjectsConsole() {
               {active.highlights.map((item) => (
                 <motion.li
                   key={item}
-                  className="text-sm text-neutral-300 before:content-['▸'] before:mr-2 before:text-neutral-500"
+                  className={`text-sm ${subTextColor} before:content-['▸'] before:mr-2 before:opacity-60`}
                   initial={{ opacity: 0, x: -5 }}
                   animate={{ opacity: 1, x: 0 }}
                   transition={{ duration: 0.3 }}
@@ -89,7 +109,7 @@ export function ProjectsConsole() {
               {active.stack.map((tech) => (
                 <motion.span
                   key={tech}
-                  className="text-xs px-3 py-1 rounded-full border border-neutral-700 text-neutral-300"
+                  className={`text-xs px-3 py-1 rounded-full border ${badgeBorder} ${badgeBg} ${textColor}`}
                   initial={{ opacity: 0, scale: 0.8 }}
                   animate={{ opacity: 1, scale: 1 }}
                   transition={{ duration: 0.3 }}
@@ -104,7 +124,7 @@ export function ProjectsConsole() {
                 <motion.a
                   href={active.liveUrl}
                   target="_blank"
-                  className="flex items-center gap-2 px-5 py-3 rounded-xl bg-neutral-900 border border-neutral-700 hover:bg-neutral-800 transition text-white"
+                  className={`flex items-center gap-2 px-5 py-3 rounded-xl border ${badgeBorder} ${badgeBg} ${textColor}`}
                   whileHover={{ scale: 1.03 }}
                   whileTap={{ scale: 0.97 }}
                 >
@@ -115,7 +135,7 @@ export function ProjectsConsole() {
                 <motion.a
                   href={active.githubUrl}
                   target="_blank"
-                  className="flex items-center gap-2 px-5 py-3 rounded-xl border border-neutral-700 hover:bg-neutral-900 transition text-neutral-300"
+                  className={`flex items-center gap-2 px-5 py-3 rounded-xl border ${badgeBorder} ${subTextColor}`}
                   whileHover={{ scale: 1.03 }}
                   whileTap={{ scale: 0.97 }}
                 >
