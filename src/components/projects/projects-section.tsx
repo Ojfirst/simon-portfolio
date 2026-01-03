@@ -25,7 +25,7 @@ export function ProjectsConsole() {
       : "bg-neutral-950/70 border-neutral-800"
 
   return (
-    <section id="projects" className="max-w-7xl mx-auto px-6 py-2">
+    <section id="projects" className="max-w-7xl mx-auto px-6 py-15">
       <JsonLd schema={getProjectSchema(active)} />
 
       <header className="mb-10">

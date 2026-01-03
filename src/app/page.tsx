@@ -1,4 +1,5 @@
 import { OperationsHero } from '@/components/hero/hero'
+import { AboutSection } from '@/components/about-section/about-section';
 import ProjectSwitcher from '@/components/projects/project-switcher'
 import { ExperienceConsole } from '@/components/experienceConsole/experience-console';
 import { CapabilityMatrix } from '@/components/experienceConsole/capability-matrix/capability-matrix';
@@ -10,9 +11,9 @@ import { ContactSection } from '@/components/contact/contact-section';
 
 export default function Home() {
   return (
-
-    <main >
+    <>
       <OperationsHero />
+      <AboutSection />
       <ProjectSwitcher />
       <ExperienceConsole />
       <CapabilityMatrix />
@@ -20,7 +21,6 @@ export default function Home() {
       <SkillsSection />
       <ArchitectureSection />
       <ContactSection />
-    </main>
-
+    </>
   )
 }
