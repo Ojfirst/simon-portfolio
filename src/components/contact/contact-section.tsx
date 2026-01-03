@@ -5,8 +5,16 @@ import { contactSchema } from "@/lib/schema/contact-schema"
 import { useTheme } from "next-themes"
 import { motion } from "framer-motion"
 import { toast } from "sonner"
-import { useState } from "react"
-import { POST } from "@/app/api/contact/route"
+import { useState } from "react";
+
+type ContactForm = {
+  name: string
+  email: string
+  message: string
+  company?: string // honeypot
+}
+
+
 
 export function ContactSection() {
   const { theme } = useTheme()
@@ -29,10 +37,11 @@ export function ContactSection() {
   // ------------------------
   // FORM STATE
   // ------------------------
-  const [form, setForm] = useState({
+  const [form, setForm] = useState<ContactForm>({
     name: "",
     email: "",
     message: "",
+    company: ''
   })
   const [loading, setLoading] = useState(false)
 
@@ -208,6 +217,22 @@ export function ContactSection() {
             onChange={handleChange}
             className={`w-full rounded-xl px-4 py-3 bg-transparent border ${badgeBorder} ${textColor}`}
           />
+
+          {/* Honeypot field (bots only) */}
+          <div className="absolute left-[-9999px] top-auto w-px h-px overflow-hidden">
+            <label htmlFor="company">Company</label>
+            <input
+              id="company"
+              name="company"
+              type="text"
+              tabIndex={-1}
+              autoComplete="off"
+              value={form.company || ""}
+              onChange={(e) =>
+                setForm((prev) => ({ ...prev, company: e.target.value }))
+              }
+            />
+          </div>
 
           <motion.button
             type="submit"
