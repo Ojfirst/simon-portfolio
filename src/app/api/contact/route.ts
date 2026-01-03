@@ -3,21 +3,28 @@ import { NextResponse } from 'next/server';
 
 const resend = new Resend(process.env.RESEND_API_KEY);
 
-export const POST = async (req: Request) => {
+export async function POST(req: Request) {
 	try {
 		const { name, email, message } = await req.json();
 
 		if (!name || !email || !message) {
 			return NextResponse.json(
-				{ error: 'Missing required fields' },
+				{ error: 'All fields are required' },
+				{ status: 400 }
+			);
+		}
+
+		if (!/^\S+@\S+\.\S+$/.test(email)) {
+			return NextResponse.json(
+				{ error: 'Invalid email address' },
 				{ status: 400 }
 			);
 		}
 
 		await resend.emails.send({
 			from: 'Portfolio Contact <onboarding@resend.dev>',
-			to: process.env.CONTACT_TO_EMAIL!,
-			replyTo: email,
+			to: [process.env.CONTACT_TO_EMAIL!],
+			replyTo: [email],
 			subject: `New Contact Message from ${name}`,
 			html: `
         <div style="font-family: sans-serif">
@@ -30,12 +37,15 @@ export const POST = async (req: Request) => {
       `,
 		});
 
-		return NextResponse.json({ success: true });
+		return NextResponse.json(
+			{ message: 'Message successfully sent' },
+			{ status: 201 }
+		);
 	} catch (error) {
-		console.error(error);
+		console.error('Contact API error:', error);
 		return NextResponse.json(
 			{ error: 'Failed to send message' },
 			{ status: 500 }
 		);
 	}
-};
+}

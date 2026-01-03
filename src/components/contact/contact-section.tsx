@@ -53,37 +53,46 @@ export function ContactSection() {
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
 
-    const error = validate()
-    if (error) {
-      toast.error(error)
+    if (!navigator.onLine) {
+      toast.error("You are offline.")
       return
     }
 
     setLoading(true)
+
+    const controller = new AbortController()
+    const timeout = setTimeout(() => controller.abort(), 8000)
+
     try {
-      if (!form) return toast.error('Invalid for data');
-      const res = await fetch('/api/contact', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
+      const res = await fetch("/api/contact", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
         body: JSON.stringify(form),
+        signal: controller.signal,
       })
 
+      const data = await res.json()
+
       if (!res.ok) {
-        const error = await res.json()
-        throw new Error(error);
+        toast.error(data.error || "Failed to send message")
+        return
       }
 
-      toast.success('Message successfully sent');
+      toast.success(data.message)
       setForm({ name: "", email: "", message: "" })
-    } catch (error) {
-      if (error instanceof TypeError) {
-        toast.error(error.message || 'An unknown error occure, check your internet connection');
+
+    } catch (err) {
+      if (err instanceof DOMException && err.name === "AbortError") {
+        toast.error("Request timed out.")
+      } else {
+        toast.error("Network error.")
       }
-      toast.error('Something went wrong!')
     } finally {
-      setLoading(false);
+      clearTimeout(timeout)
+      setLoading(false)
     }
   }
+
 
   return (
     <section id="contact" className="max-w-7xl mx-auto px-6 py-24">
