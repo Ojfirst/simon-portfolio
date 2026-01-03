@@ -6,6 +6,8 @@ import { useTheme } from "next-themes"
 import { motion } from "framer-motion"
 import { toast } from "sonner"
 import { useState } from "react";
+import { AvailabilityBadge } from "../availability/AvailabilityBadge"
+import { calendarSchema } from "@/lib/schema/calendar-schema"
 
 type ContactForm = {
   name: string
@@ -104,12 +106,14 @@ export function ContactSection() {
 
 
   return (
-    <section id="contact" className="max-w-7xl mx-auto px-6 py-24">
+    <section id="contact" className="max-w-7xl mx-auto px-6 py-2">
       <JsonLd schema={contactSchema} />
+      <JsonLd schema={calendarSchema} />
+
 
       {/* HEADER */}
       <motion.header
-        className="mb-14"
+        className="mb-8"
         initial={{ opacity: 0, y: 15 }}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true }}
@@ -117,10 +121,28 @@ export function ContactSection() {
         <h2 className={`text-3xl font-semibold ${textColor}`}>
           Contact & Availability
         </h2>
-        <p className={`${subTextColor} max-w-2xl mt-2`}>
+        <p className={`${subTextColor} max-w-2xl mt-2 mb-2`}>
           Open to senior roles, consulting, and system-level collaboration across
           automotive and software platforms.
         </p>
+        <AvailabilityBadge />
+
+        <motion.a
+          href="https://cal.com/your-username/intro"
+          target="_blank"
+          rel="noopener noreferrer"
+          whileHover={{ scale: 1.03 }}
+          whileTap={{ scale: 0.97 }}
+          className={` block
+          items-center gap-2
+          px-6 py-3 rounded-xl border w-40 mt-4
+          ${badgeBorder} ${badgeBg} ${textColor}
+          transition
+        `}
+        >
+          📅 Book a Call
+        </motion.a>
+
       </motion.header>
 
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-10">

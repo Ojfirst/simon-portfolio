@@ -7,6 +7,7 @@ import { useTheme } from "next-themes"
 import { JsonLd } from "@/components/seo/json-ld"
 import { softwareApplicationSchema } from "@/lib/schema/software-application/schema"
 import { motion } from "framer-motion"
+import { AvailabilityBadge } from "../availability/AvailabilityBadge"
 
 const OperationsHero = () => {
   const { theme } = useTheme()
@@ -102,6 +103,7 @@ const OperationsHero = () => {
           >
             <MapPin size={12} /> Operating Globally · Automotive Platforms
           </motion.div>
+          <AvailabilityBadge />
         </motion.div>
 
         {/* RIGHT — OPERATIONAL READOUT */}

@@ -6,7 +6,7 @@ export function ResumeConsole() {
   return (
     <section
       id="resume"
-      className="max-w-7xl mx-auto px-6 py-24"
+      className="max-w-7xl mx-auto px-6 py-2"
     >
       <header className="mb-12">
         <h2 className="text-3xl font-semibold text-neutral-900 dark:text-white">

@@ -1,12 +1,13 @@
 "use client"
 
 import { architecturePrinciples } from "./architecture.data"
-import { projects, Project } from "@/components/projects/project.data"
+import { Project } from "@/components/projects/project.data"
 import { motion, AnimatePresence } from "framer-motion"
 import { useState } from "react"
 import { useTheme } from "next-themes"
 import { JsonLd } from "@/components/seo/json-ld"
 import { getArchitectureSchema } from "@/lib/schema/architecture-schema"
+import { getProjectById } from "@/lib/projects/getProjectById"
 
 export function ArchitectureSection() {
   const { theme } = useTheme()
@@ -18,8 +19,6 @@ export function ArchitectureSection() {
   const mutedText = theme === "light" ? "text-neutral-600" : "text-neutral-500"
   const cardBg = theme === "light" ? "bg-white/40" : "bg-white/5"
   const cardBorder = theme === "light" ? "border-neutral-400/40" : "border-neutral-700"
-
-  const getProjectById = (id?: string) => projects.find(p => p.id === id) || null
 
   return (
     <section id="architecture" className="max-w-7xl mx-auto px-6 py-24 relative">
