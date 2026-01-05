@@ -3,9 +3,18 @@
 import { useState } from "react"
 import { projects, Project } from "@/components/projects/project.data"
 import { ExternalLink, Github, X } from "lucide-react"
+import { useThemeTokens } from "@/lib/theme/useThemeTokens"
 
 const ProjectsConsoleMobile = () => {
   const [selected, setSelected] = useState<Project | null>(null)
+  const {
+    textColor,
+    subTextColor,
+    socialIcon,
+    badgeBg,
+    badgeBorder,
+    panelBg
+  } = useThemeTokens()
 
   return (
     <section
@@ -14,10 +23,10 @@ const ProjectsConsoleMobile = () => {
     >
       {/* Section Header */}
       <header className="text-center space-y-3">
-        <h2 className="text-4xl font-bold text-neutral-900 dark:text-white">
+        <h2 className={`text-4xl font-bold ${textColor}`}>
           Project Showcase
         </h2>
-        <p className="text-neutral-700 dark:text-neutral-300 max-w-2xl mx-auto">
+        <p className={`${subTextColor} max-w-2xl mx-auto`}>
           A curated view of automotive systems and modern web platforms I’ve built, each powered with production-grade code.
         </p>
       </header>
@@ -31,12 +40,12 @@ const ProjectsConsoleMobile = () => {
             className="relative glass rounded-2xl p-6 text-left transition transform hover:scale-[1.03] hover:shadow-lg focus:outline-none"
           >
             {/* Project Name */}
-            <h3 className="text-xl font-semibold text-neutral-900 dark:text-white">
+            <h3 className={`text-xl font-semibold ${subTextColor}`}>
               {project.name}
             </h3>
 
             {/* Category */}
-            <p className="text-sm text-neutral-700 dark:text-neutral-300 mt-1">
+            <p className={`text-sm ${subTextColor} mt-1`}>
               {project.category}
             </p>
 
@@ -59,10 +68,10 @@ const ProjectsConsoleMobile = () => {
             </button>
 
             {/* Project Details */}
-            <h3 className="text-2xl font-bold text-neutral-900 dark:text-white mb-4">
+            <h3 className={`text-2xl font-bold ${textColor} mb-4`}>
               {selected.name}
             </h3>
-            <p className="text-neutral-700 dark:text-neutral-300 mb-4">
+            <p className="text-neutral-700 dark:text-neutral-900 mb-4">
               {selected.summary}
             </p>
 
@@ -71,7 +80,7 @@ const ProjectsConsoleMobile = () => {
               {selected.highlights.map((item) => (
                 <li
                   key={item}
-                  className="text-neutral-800 dark:text-neutral-200 text-sm before:content-['▸'] before:mr-2 before:text-neutral-500"
+                  className="text-neutral-800 dark:text-neutral-900 text-sm before:content-['▸'] before:mr-2 before:text-neutral-500"
                 >
                   {item}
                 </li>
@@ -83,7 +92,7 @@ const ProjectsConsoleMobile = () => {
               {selected.stack.map((tech) => (
                 <span
                   key={tech}
-                  className="text-xs px-3 py-1 rounded-full border border-neutral-700 text-neutral-800 dark:text-neutral-200"
+                  className="text-xs px-3 py-1 rounded-full border border-neutral-700 text-neutral-800 dark:text-neutral-200 dark:bg-neutral-800"
                 >
                   {tech}
                 </span>
@@ -106,7 +115,7 @@ const ProjectsConsoleMobile = () => {
                 <a
                   href={selected.githubUrl}
                   target="_blank"
-                  className="flex items-center gap-2 px-5 py-3 rounded-xl border border-neutral-700 hover:bg-neutral-100 dark:hover:bg-neutral-900 transition text-neutral-900 dark:text-white"
+                  className="flex items-center gap-2 px-5 py-3 rounded-xl border border-neutral-700 hover:bg-neutral-100 dark:hover:bg-neutral-800 transition text-neutral-900 dark:text-neutral-900 dark:hover:text-neutral-100"
                 >
                   <Github size={18} />
                   Source Code

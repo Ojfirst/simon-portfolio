@@ -13,11 +13,9 @@ export function SiteFooter() {
   const {
     textColor,
     subTextColor,
-    mutedText,
-    panelBg,
+    socialIcon,
     badgeBg,
-    badgeBorder,
-    iconPanel,
+
   } = useThemeTokens()
 
   return (
@@ -31,7 +29,7 @@ export function SiteFooter() {
           {/* Brand / Identity */}
           <div className="space-y-4">
             <div className="flex items-center gap-3">
-              <div className="h-10 w-10 rounded-xl bg-gradient-to-br from-indigo-500 to-purple-600 flex items-center justify-center font-bold text-white shadow-lg">
+              <div className={`h-10 w-10 rounded-xl ${badgeBg} flex items-center justify-center font-bold  shadow-lg`}>
                 SA
               </div>
               <div>
@@ -103,7 +101,7 @@ export function SiteFooter() {
                     rel="noopener noreferrer"
                     aria-label={label}
                     className={`group flex h-11 w-11 items-center justify-center rounded-xl
-            border border-neutral-800 bg-neutral-900/60 backdrop-blur
+            border border-neutral-800 ${socialIcon} backdrop-blur
             transition-all hover:-translate-y-1 ${hover}`}
                   >
                     <Icon className="w-5 h-5 text-neutral-400 group-hover:text-white" />
@@ -115,10 +113,10 @@ export function SiteFooter() {
             <a
               href={`mailto:${contactInfo.email}`}
               aria-label="Email"
-              className="group flex h-11 w-11 items-center justify-center rounded-xl
-      border border-neutral-800 bg-neutral-900/60 backdrop-blur
+              className={`roup flex h-11 w-11 items-center justify-center rounded-xl
+      border border-neutral-800 ${socialIcon} backdrop-blur
       transition-all hover:-translate-y-1
-      hover:border-emerald-500/50 hover:shadow-[0_0_30px_-12px_rgba(16,185,129,0.8)]"
+      hover:border-emerald-500/50 hover:shadow-[0_0_30px_-12px_rgba(16,185,129,0.8)]`}
             >
               <Mail className="w-5 h-5 text-neutral-400 group-hover:text-white" />
             </a>
@@ -127,11 +125,11 @@ export function SiteFooter() {
 
           {/* Bottom bar */}
           <div className="mt-16 flex flex-col md:flex-row items-center justify-between gap-4 border-t border-neutral-800/60 pt-6">
-            <p className="text-xs text-neutral-500">
+            <p className={`text-xs ${textColor}`}>
               © {year} Simon Abiodun Aina. All rights reserved.
             </p>
 
-            <div className="flex items-center gap-6 text-xs text-neutral-500">
+            <div className="flex items-center gap-6 text-xs text-neutral-700">
               <Link href="/privacy" className="hover:text-white transition-colors">
                 Privacy
               </Link>
