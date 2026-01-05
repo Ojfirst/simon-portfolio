@@ -8,6 +8,7 @@ export function useThemeTokens() {
 	const isLight = theme === 'light';
 
 	return {
+		theme,
 		textColor: isLight ? 'text-neutral-900' : 'text-white',
 		subTextColor: isLight ? 'text-neutral-700' : 'text-neutral-400',
 		mutedText: isLight ? 'text-neutral-600' : 'text-neutral-500',
@@ -18,6 +19,10 @@ export function useThemeTokens() {
 		panelBg: isLight
 			? 'bg-white/70 border-neutral-300'
 			: 'bg-neutral-950/70 border-neutral-800',
+
+		imageBg: isLight
+			? 'bg-black/5 border-black/10'
+			: 'bg-white/5 border-white/10',
 
 		iconPanel: isLight
 			? 'bg-white/70 border-neutral-300 text-neutral-700'

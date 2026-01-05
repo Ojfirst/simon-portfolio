@@ -46,7 +46,7 @@ export function AboutSection() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.2, duration: 0.6 }}
         >
-          I combine over 25 years of leadership in automotive sales and operations with modern software engineering practices. My mission is to design systems that enhance efficiency, scalability, and user experience across complex operational workflows.
+          I combine over 20 years of leadership in automotive sales and operations with modern software engineering practices. My mission is to design systems that enhance efficiency, scalability, and user experience across complex operational workflows.
         </motion.p>
       </header>
 
@@ -65,7 +65,7 @@ export function AboutSection() {
           { title: "Software Engineering", desc: "Full-stack development, system architecture, and workflow automation." },
           { title: "Product & Systems Design", desc: "Operationally-driven software design that aligns with real-world workflows." },
           { title: "Strategy & Negotiation", desc: "Process optimization, vendor & partner negotiations, and data-driven decision making." },
-        ].map((item, i) => (
+        ].map((item) => (
           <motion.div
             key={item.title}
             className="glass rounded-2xl p-6 border backdrop-blur-md cursor-default"

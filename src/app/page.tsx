@@ -7,11 +7,14 @@ import { ResumeConsole } from '@/components/resume-console/resume-console';
 import { SkillsSection } from '@/components/skills/SkillsSection';
 import { ArchitectureSection } from '@/components/architecture/architecture-section';
 import { ContactSection } from '@/components/contact/contact-section';
+import { Header } from '@/components/layout/header';
+import { SiteFooter } from '@/components/layout/footer';
 
 
 export default function Home() {
   return (
     <>
+      <Header />
       <OperationsHero />
       <AboutSection />
       <ProjectSwitcher />
@@ -21,6 +24,7 @@ export default function Home() {
       <SkillsSection />
       <ArchitectureSection />
       <ContactSection />
+      <SiteFooter />
     </>
   )
 }

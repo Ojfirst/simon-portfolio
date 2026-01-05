@@ -10,10 +10,6 @@ const ProjectsConsoleMobile = () => {
   const {
     textColor,
     subTextColor,
-    socialIcon,
-    badgeBg,
-    badgeBorder,
-    panelBg
   } = useThemeTokens()
 
   return (
