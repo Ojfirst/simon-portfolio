@@ -125,7 +125,7 @@ export const OperationsHero = () => {
             </div>
 
             <div className="grid grid-cols-2 gap-6">
-              <Readout label="Experience" value="25+ Years" theme={theme} />
+              <Readout label="Experience" value="20+ Years" theme={theme} />
               <Readout label="Domains" value="Automotive · SaaS" theme={theme} />
               <Readout label="Systems" value="Retail · Service · Ops" theme={theme} />
               <Readout label="Focus" value="Modern Dealership Software" theme={theme} />
