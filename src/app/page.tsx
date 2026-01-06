@@ -9,21 +9,24 @@ import { ArchitectureSection } from '@/components/architecture/architecture-sect
 import { ContactSection } from '@/components/contact/contact-section';
 import { Header } from '@/components/layout/header';
 import { SiteFooter } from '@/components/layout/footer';
+import { ThemeGuard } from '@/components/ui/theme-guard';
 
 
 export default function Home() {
   return (
     <>
-      <Header />
-      <OperationsHero />
-      <AboutSection />
-      <ProjectSwitcher />
-      <ExperienceConsole />
-      <CapabilityMatrix />
-      <ResumeConsole />
-      <SkillsSection />
-      <ArchitectureSection />
-      <ContactSection />
+      <ThemeGuard>
+        <Header />
+        <OperationsHero />
+        <AboutSection />
+        <ProjectSwitcher />
+        <ExperienceConsole />
+        <CapabilityMatrix />
+        <ResumeConsole />
+        <SkillsSection />
+        <ArchitectureSection />
+        <ContactSection />
+      </ThemeGuard>
       <SiteFooter />
     </>
   )
