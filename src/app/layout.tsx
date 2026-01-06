@@ -105,9 +105,9 @@ export default function RootLayout({
         <JsonLd schema={websiteSchema} />
       </head>
       <body className="bg-gray-950 text-gray-100">
-        <SeoPerson />
-        <SeoSoftware />
-        <ThemeProvider attribute="class" defaultTheme='system' enableSystem={false}>
+        <ThemeProvider attribute="class" defaultTheme='dark' enableSystem={false}>
+          <SeoPerson />
+          <SeoSoftware />
           <main className="pt-28">{children}</main>
           <ToasterProvider />
         </ThemeProvider>
