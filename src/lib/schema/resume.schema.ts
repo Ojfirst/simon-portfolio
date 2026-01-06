@@ -4,8 +4,8 @@ export const getResumeSchema = (resume: Resume) => ({
 	'@context': 'https://schema.org',
 	'@type': 'Person',
 	name: 'Simon Abiodun Aina',
-	url: 'https://your-domain.com',
-	image: 'https://your-domain.com/images/simon-profile.jpg',
+	url: 'https://simon-portfolio-ten.vercel.app/',
+	image: 'https://simon-portfolio-ten.vercel.app/images/simon-profile.jpg',
 	jobTitle: resume.title,
 	worksFor: [
 		{
@@ -15,10 +15,13 @@ export const getResumeSchema = (resume: Resume) => ({
 	],
 	sameAs: [
 		'https://www.linkedin.com/in/simonaina/',
-		'https://github.com/simonaina',
+		'https://github.com/Ojfirst',
 	],
 	description: resume.summary,
-	skills: resume.skills,
+	skills: resume.skills.map((skillName) => ({
+		'@type': 'DefinedTerm',
+		name: skillName,
+	})),
 	alumniOf: resume.subTitle.includes('Education')
 		? {
 				'@type': 'EducationalOrganization',

@@ -5,7 +5,7 @@ export function getCapabilitySchema() {
 	return {
 		'@context': 'https://schema.org',
 		'@type': 'DefinedTermSet',
-		'@id': 'https://yourdomain.com/#capability-matrix',
+		'@id': 'https://simon-portfolio-ten.vercel.app/#capability-matrix',
 		name: 'Professional Capability Matrix',
 		description:
 			'A structured representation of operational, technical, and business capabilities applied across automotive systems and modern software platforms.',

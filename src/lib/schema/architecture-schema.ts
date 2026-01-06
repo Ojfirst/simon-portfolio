@@ -28,7 +28,7 @@ export function getArchitectureSchema() {
 					mainEntityOfPage: p.articleUrl
 						? {
 								'@type': 'WebPage',
-								'@id': `https://yourdomain.com${p.articleUrl}`,
+								'@id': `https://simon-portfolio-ten.vercel.app/${p.articleUrl}`,
 						  }
 						: undefined,
 

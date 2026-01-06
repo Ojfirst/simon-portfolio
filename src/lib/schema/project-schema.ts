@@ -18,7 +18,7 @@ export function getProjectSchema(project: Project) {
 			],
 			sameAs: [
 				'https://www.linkedin.com/in/simonaina/',
-				'https://github.com/simonaina',
+				'https://github.com/Ojfirst',
 			],
 		},
 		technology: project.stack,

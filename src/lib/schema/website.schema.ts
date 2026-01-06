@@ -2,7 +2,7 @@ export const websiteSchema = {
 	'@context': 'https://schema.org',
 	'@type': 'WebSite',
 	name: 'Simon Abiodun Aina',
-	url: 'https://your-domain.com',
+	url: 'https://simon-portfolio-ten.vercel.app/',
 	description:
 		'Official portfolio of Simon Abiodun Aina — Automotive Operations & Software Systems Architect.',
 	publisher: {
@@ -11,7 +11,8 @@ export const websiteSchema = {
 	},
 	potentialAction: {
 		'@type': 'SearchAction',
-		target: 'https://your-domain.com/search?q={search_term_string}',
+		target:
+			'https://simon-portfolio-ten.vercel.app/search?q={search_term_string}',
 		'query-input': 'required name=search_term_string',
 	},
 };
