@@ -105,7 +105,7 @@ export default function RootLayout({
         <JsonLd schema={websiteSchema} />
       </head>
       <body className="bg-gray-950 text-gray-100">
-        <ThemeProvider attribute="class" defaultTheme='dark' enableSystem={false}>
+        <ThemeProvider attribute="class" defaultTheme='dark' enableSystem={false} disableTransitionOnChange>
           <SeoPerson />
           <SeoSoftware />
           <main className="pt-28">{children}</main>
