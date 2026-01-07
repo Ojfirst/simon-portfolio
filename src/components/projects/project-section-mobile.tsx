@@ -15,7 +15,7 @@ const ProjectsConsoleMobile = () => {
   return (
     <section
       id="projects"
-      className="max-w-7xl mx-auto px-6 py-16 space-y-12"
+      className="max-w-7xl mx-auto px-6 py-2 mt-16 space-y-12"
     >
       {/* Section Header */}
       <header className="text-center space-y-3">

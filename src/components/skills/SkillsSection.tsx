@@ -21,7 +21,7 @@ export function SkillsSection() {
   return (
     <section
       id="skills"
-      className="max-w-7xl mx-auto px-6 py-20"
+      className="max-w-7xl mx-auto px-6 py-2 mt-16"
     >
       <JsonLd schema={skillsSchema()} />
       <header className="mb-14">

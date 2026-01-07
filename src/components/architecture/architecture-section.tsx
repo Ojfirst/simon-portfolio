@@ -21,7 +21,7 @@ export function ArchitectureSection() {
   const cardBorder = theme === "light" ? "border-neutral-400/40" : "border-neutral-700"
 
   return (
-    <section id="architecture" className="max-w-7xl mx-auto px-6 py-24 relative">
+    <section id="architecture" className="max-w-7xl mx-auto px-6 py-2 mt-16 relative">
       <JsonLd schema={getArchitectureSchema()} />
 
       <header className="mb-14">

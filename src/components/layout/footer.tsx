@@ -27,7 +27,7 @@ export function SiteFooter() {
           {/* Brand / Identity */}
           <div className="space-y-4">
             <div className="flex items-center gap-3">
-              <div className="h-10 w-10 rounded-xl bg-gradient-to-br from-indigo-500 to-purple-600 flex items-center justify-center font-bold text-white shadow-lg">
+              <div className="h-10 w-10 rounded-xl bg-neutral-800 flex items-center justify-center font-bold text-white shadow-lg">
                 SA
               </div>
               <div>

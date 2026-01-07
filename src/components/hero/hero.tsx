@@ -21,7 +21,7 @@ export const OperationsHero = () => {
   const theme = resolvedTheme as ThemeMode
 
   return (
-    <section className={`relative min-h-[90vh] ${isMobile ? 'pt-2' : 'pt-32'}`}>
+    <section className={`relative min-h-[90vh] ${isMobile ? 'pt-2' : 'pt-16'}`}>
       <JsonLd schema={softwareApplicationSchema} />
 
       <div className="max-w-7xl mx-auto px-6 grid grid-cols-1 lg:grid-cols-2 gap-10">
@@ -36,7 +36,7 @@ export const OperationsHero = () => {
           <motion.div
             className={`text-sm tracking-widest px-2 py-1 rounded ${theme === "light"
               ? "text-gray-800"
-              : "text-[#f4f4f4]"
+              : "text-white"
               }`}
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}

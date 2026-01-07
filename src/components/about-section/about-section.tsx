@@ -28,7 +28,7 @@ export function AboutSection() {
   }
 
   return (
-    <section id="about" className="max-w-7xl mx-auto px-6 py-2">
+    <section id="about" className="max-w-7xl mx-auto px-6 py-2 mt-16">
       <JsonLd schema={personSchema} />
 
       <header className="mb-12 text-center">

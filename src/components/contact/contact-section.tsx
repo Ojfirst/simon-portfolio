@@ -106,7 +106,7 @@ export function ContactSection() {
 
 
   return (
-    <section id="contact" className="max-w-7xl mx-auto px-6 py-2">
+    <section id="contact" className="max-w-7xl mx-auto px-6 py-2 mt-16">
       <JsonLd schema={contactSchema} />
       <JsonLd schema={calendarSchema} />
 
@@ -193,7 +193,7 @@ export function ContactSection() {
               <motion.span
                 key={cp.contactType}
                 whileHover={{ scale: 1.05 }}
-                className={`px-3 py-1 rounded-full border ${badgeBorder} ${badgeBg} ${textColor}`}
+                className={`px-3 py-1 rounded-full border cursor-pointer ${badgeBorder} ${badgeBg} ${textColor}`}
               >
                 {cp.contactType}
               </motion.span>

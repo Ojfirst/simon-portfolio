@@ -33,7 +33,7 @@ export function ExperienceConsole() {
     theme === "light" ? "border-neutral-400/40" : "border-neutral-700"
 
   return (
-    <section id="experience" className="max-w-7xl mx-auto px-6 py-24">
+    <section id="experience" className="max-w-7xl mx-auto px-6 py-2 mt-16">
       <JsonLd schema={personSchema} />
       <header className="mb-12">
         <h2 className={`text-3xl font-semibold ${textColor}`}>

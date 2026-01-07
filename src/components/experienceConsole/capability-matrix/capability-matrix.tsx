@@ -30,7 +30,7 @@ export function CapabilityMatrix() {
     theme === "light" ? "text-neutral-800" : "text-neutral-300"
 
   return (
-    <section id="capabilities" className="max-w-7xl mx-auto px-6 py-2">
+    <section id="capabilities" className="max-w-7xl mx-auto px-6 py-2 mt-16">
       <JsonLd schema={capabilitySchema} />
       <header className="mb-14">
         <h2 className={`text-3xl font-semibold ${textColor}`}>
