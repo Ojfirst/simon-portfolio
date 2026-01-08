@@ -52,7 +52,7 @@ export function ProjectsConsole() {
               className={`w-full text-left px-4 py-3 rounded-xl transition
                 ${active.id === project.id
                   ? `${badgeBg} ${textColor} border ${badgeBorder}`
-                  : `${subTextColor} hover:bg-white/10`
+                  : `${subTextColor} hover:bg-white/10 cursor-pointer`
                 }`}
             >
               <div className="text-sm font-medium">{project.name}</div>

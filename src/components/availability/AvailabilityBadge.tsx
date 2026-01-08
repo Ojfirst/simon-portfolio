@@ -8,11 +8,9 @@ export function AvailabilityBadge() {
   const { theme } = useTheme()
 
   const textColor = theme === "light" ? "text-neutral-900" : "text-white"
-  const subTextColor =
-    theme === "light" ? "text-neutral-700" : "text-neutral-400"
+  const subTextColor = theme === "light" ? "text-neutral-700" : "text-neutral-400"
   const badgeBg = theme === "light" ? "bg-white/40" : "bg-white/5"
-  const badgeBorder =
-    theme === "light" ? "border-neutral-400/40" : "border-neutral-700"
+  const badgeBorder = theme === "light" ? "border-neutral-400/40" : "border-neutral-700"
 
   if (!availability.available) return null
 
@@ -20,7 +18,7 @@ export function AvailabilityBadge() {
     <motion.div
       whileHover={{ scale: 1.03 }}
       whileTap={{ scale: 0.98 }}
-      className={`inline-flex items-center gap-3 px-4 py-2 rounded-full border backdrop-blur-xl ${badgeBg} ${badgeBorder}`}
+      className={`inline-flex items-center gap-3 px-4 py-2 rounded-full border backdrop-blur-xl cursor-pointer ${badgeBg} ${badgeBorder}`}
     >
       {/* status dot */}
       <span className="relative flex h-2 w-2">

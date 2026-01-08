@@ -33,7 +33,7 @@ const ProjectsConsoleMobile = () => {
           <button
             key={project.id}
             onClick={() => setSelected(project)}
-            className="relative glass rounded-2xl p-6 text-left transition transform hover:scale-[1.03] hover:shadow-lg focus:outline-none"
+            className="relative glass rounded-2xl p-6 text-left transition transform hover:scale-[1.03] hover:shadow-lg focus:outline-none cursor-pointer"
           >
             {/* Project Name */}
             <h3 className={`text-xl font-semibold ${subTextColor}`}>

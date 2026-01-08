@@ -81,7 +81,7 @@ export function CapabilityMatrix() {
                       ${badgeBg}
                       backdrop-blur-md
                       text-sm ${badgeText}
-                      cursor-default
+                      cursor-pointer
                       transition-colors duration-300
                     `}
                     initial={{ opacity: 0, y: 10 }}

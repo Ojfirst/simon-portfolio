@@ -40,7 +40,7 @@ export function ResumeConsole() {
               className={`w-full text-left px-4 py-4 rounded-xl transition
                 ${active.id === resume.id
                   ? `bg-black/5 dark:bg-white/10 ${textColor} border border-neutral-700`
-                  : `${subTextColor} hover:bg-black/5 dark:hover:bg-white/5`
+                  : `${subTextColor} hover:bg-black/5 dark:hover:bg-white/5 cursor-pointer`
                 }`}
             >
               <div className="text-sm font-medium">{resume.title}</div>
@@ -115,6 +115,8 @@ export function ResumeConsole() {
                 <a
                   href={active.pdfUrl}
                   target="_blank"
+                  rel="noopener noreferrer"
+                  download
                   className="inline-flex items-center gap-2 px-5 py-3 rounded-xl bg-neutral-900 border border-neutral-700 hover:bg-neutral-800 transition text-white"
                 >
                   <Download size={18} />

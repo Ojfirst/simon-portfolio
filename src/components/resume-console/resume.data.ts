@@ -48,6 +48,7 @@ export const resumes: Resume[] = [
 		],
 		skills: [
 			'React & Next.js',
+			'TypeScript',
 			'Tailwind CSS',
 			'Node.js / Express',
 			'Prisma & PostgreSQL',

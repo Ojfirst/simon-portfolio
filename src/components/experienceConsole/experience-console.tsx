@@ -57,7 +57,7 @@ export function ExperienceConsole() {
               className={`w-full text-left px-4 py-4 rounded-xl transition
                 ${active.id === exp.id
                   ? `${activeItemBg} ${textColor}`
-                  : `${subTextColor} ${hoverItemBg}`
+                  : `${subTextColor} ${hoverItemBg} cursor-pointer`
                 }
               `}
             >
