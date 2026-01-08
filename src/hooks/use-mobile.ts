@@ -3,7 +3,7 @@
 import { useEffect, useState } from 'react';
 
 // Just a number, no need for a complex type
-const MOBILE_BREAKPOINT = 900;
+const MOBILE_BREAKPOINT = 850;
 
 const useMobile = (): boolean => {
 	// Provide initial value based on current window width (if available)
