@@ -45,7 +45,7 @@ export const OperationsHero = () => {
             SYSTEM IDENTITY
           </motion.div>
 
-          <div className="grid grid-cols-[120px_1fr] gap-6 items-center">
+          <div className={`grid ${isMobile ? 'grid-row-[120_1fr]' : 'grid-cols-[120px_1fr]'} gap-6 items-center`}>
             {/* Image */}
             <motion.div
               className={`relative rounded-xl border overflow-hidden ${imageBg}`}
