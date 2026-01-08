@@ -62,7 +62,7 @@ export const resumes: Resume[] = [
 		title: 'Education',
 		subTitle: 'Formal Education & Professional Certifications',
 		organization: 'University / Certification Institution',
-		period: '1995 – 2000',
+		period: '1995 – 2011',
 		summary:
 			'Formal education and certifications in business, operations management, and software development.',
 		highlights: [
