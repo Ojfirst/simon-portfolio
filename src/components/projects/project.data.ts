@@ -94,8 +94,13 @@ export const projects: Project[] = [
 		category: 'Platform',
 		summary:
 			'A simple website search-engine-friendly where you can find every country details one at a time.',
-		highlights: ['Stock browsing', 'Shopping cart management'],
-		stack: ['HTML', 'CSS', 'javaSript'],
+		highlights: [
+			'Country Identity and symbol',
+			'Geography and location',
+			'Demography and culture',
+			'Time zone and administration',
+		],
+		stack: ['HTML', 'CSS', 'javaSript (FP)'],
 		liveUrl: 'https://ojfirst.github.io/country.app/',
 		githubUrl: 'https://github.com/Ojfirst/country.app',
 	},
