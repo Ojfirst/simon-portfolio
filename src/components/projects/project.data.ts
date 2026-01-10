@@ -32,12 +32,13 @@ export const projects: Project[] = [
 			'Resend',
 			'Sooner',
 		],
-		liveUrl: '#',
-		githubUrl: '#',
+		liveUrl:
+			'https://automobile-service-schedular-y25f-git-ff2a3f-ojfirsts-projects.vercel.app/',
+		githubUrl: 'https://github.com/Ojfirst/Automobile_Service_Schedular',
 	},
 	{
-		id: 'autocare2',
-		name: 'Autocare Service Scheduler',
+		id: 'femayo',
+		name: 'Femayo',
 		category: 'Automotive',
 		summary:
 			'Enterprise-grade service scheduling and operations platform for automotive dealerships.',
@@ -47,7 +48,7 @@ export const projects: Project[] = [
 			'Real-time appointment orchestration',
 		],
 		stack: ['Next.js', 'Prisma', 'PostgreSQL', 'Tailwind'],
-		liveUrl: '#',
+		liveUrl: 'https://femayo.vercel.app/',
 		githubUrl: '#',
 	},
 ];
