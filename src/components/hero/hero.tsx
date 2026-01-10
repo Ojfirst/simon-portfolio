@@ -18,10 +18,11 @@ export const OperationsHero = () => {
   const { resolvedTheme } = useTheme();
   const { textColor, subTextColor, imageBg, panelBg, mutedText } = useThemeTokens();
 
+  console.log(isMobile)
   const theme = resolvedTheme as ThemeMode
 
   return (
-    <section className={`relative min-h-[90vh] ${isMobile ? 'pt-2' : 'pt-16'}`}>
+    <section className={`relative  ${isMobile ? 'min-h-[10vh] pt-2' : 'min-h-[40vh] pt-16'}`}>
       <JsonLd schema={softwareApplicationSchema} />
 
       <div className="max-w-7xl mx-auto px-6 grid grid-cols-1 lg:grid-cols-2 gap-10">

@@ -4,7 +4,8 @@ import { useState } from "react"
 import { projects, Project } from "@/components/projects/project.data"
 import { ExternalLink, Github, X } from "lucide-react"
 import { useThemeTokens } from "@/lib/theme/useThemeTokens"
-import Link from "next/link"
+import Link from "next/link";
+import { useMobile } from "@/hooks/use-mobile"
 
 const ProjectsConsoleMobile = () => {
   const [selected, setSelected] = useState<Project | null>(null)
@@ -12,6 +13,8 @@ const ProjectsConsoleMobile = () => {
     textColor,
     subTextColor,
   } = useThemeTokens()
+
+  const isMobile = useMobile();
 
   return (
     <section
@@ -97,12 +100,12 @@ const ProjectsConsoleMobile = () => {
             </div>
 
             {/* Links */}
-            <div className="flex gap-4">
+            <div className="flex flex-wrap gap-4">
               {selected.liveUrl && (
                 <Link
                   href={selected.liveUrl}
                   target="_blank"
-                  className="flex items-center gap-2 px-5 py-3 rounded-xl bg-neutral-900 dark:bg-neutral-800 border border-neutral-700 hover:bg-neutral-800 dark:hover:bg-neutral-700 transition text-white"
+                  className={`flex items-center gap-2 px-5 py-3 rounded-xl bg-neutral-900 dark:bg-neutral-800 border border-neutral-700 hover:bg-neutral-800 dark:hover:bg-neutral-700 transition text-white ${isMobile ? 'w-full' : ''}`}
                 >
                   <ExternalLink size={18} />
                   Live Demo
@@ -112,7 +115,7 @@ const ProjectsConsoleMobile = () => {
                 <Link
                   href={selected.githubUrl}
                   target="_blank"
-                  className={`flex items-center gap-2 px-5 py-3 rounded-xl border border-neutral-700 bg-neutral-700 dark:hover:bg-neutral-800 transition dark:text-white dark:hover:text-neutral-100`}
+                  className={`flex items-center gap-2 px-5 py-3 rounded-xl border border-neutral-700 bg-neutral-700 dark:hover:bg-neutral-800 transition dark:text-white dark:hover:text-neutral-100 ${isMobile ? 'w-full' : ''}`}
                 >
                   <Github size={18} />
                   Source Code

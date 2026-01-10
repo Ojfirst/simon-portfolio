@@ -2,10 +2,11 @@
 
 import { useEffect, useState } from 'react';
 
-const MOBILE_BREAKPOINT = 750;
+const MOBILE_BREAKPOINT = 700;
 
 const useMobile = (): boolean => {
 	// Provide initial value based on current window width (if available)
+
 	const getInitialIsMobile = (): boolean => {
 		return typeof window !== 'undefined'
 			? window.innerWidth < MOBILE_BREAKPOINT

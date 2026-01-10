@@ -30,13 +30,14 @@ export const projects: Project[] = [
 			'Email reminder',
 		],
 		stack: [
-			'Next.js',
+			'Next.js 15+',
 			'TypeScript',
 			'Prisma',
 			'PostgreSQL',
-			'Tailwind',
+			'ClerkAuth',
 			'Resend',
 			'Sooner',
+			'Tailwind-CSS',
 		],
 		liveUrl:
 			'https://automobile-service-schedular-y25f-git-ff2a3f-ojfirsts-projects.vercel.app/',
