@@ -4,6 +4,7 @@ import { useState } from "react"
 import { projects, Project } from "@/components/projects/project.data"
 import { ExternalLink, Github, X } from "lucide-react"
 import { useThemeTokens } from "@/lib/theme/useThemeTokens"
+import Link from "next/link"
 
 const ProjectsConsoleMobile = () => {
   const [selected, setSelected] = useState<Project | null>(null)
@@ -67,7 +68,7 @@ const ProjectsConsoleMobile = () => {
             <h3 className={`text-2xl font-bold ${textColor} mb-4`}>
               {selected.name}
             </h3>
-            <p className="text-neutral-700 dark:text-neutral-900 mb-4">
+            <p className={` ${subTextColor}  mb-4`}>
               {selected.summary}
             </p>
 
@@ -76,7 +77,7 @@ const ProjectsConsoleMobile = () => {
               {selected.highlights.map((item) => (
                 <li
                   key={item}
-                  className="text-neutral-800 dark:text-neutral-900 text-sm before:content-['▸'] before:mr-2 before:text-neutral-500"
+                  className={`${subTextColor} text-sm before:content-['▸'] before:mr-2 before:text-neutral-500`}
                 >
                   {item}
                 </li>
@@ -98,24 +99,24 @@ const ProjectsConsoleMobile = () => {
             {/* Links */}
             <div className="flex gap-4">
               {selected.liveUrl && (
-                <a
+                <Link
                   href={selected.liveUrl}
                   target="_blank"
                   className="flex items-center gap-2 px-5 py-3 rounded-xl bg-neutral-900 dark:bg-neutral-800 border border-neutral-700 hover:bg-neutral-800 dark:hover:bg-neutral-700 transition text-white"
                 >
                   <ExternalLink size={18} />
                   Live Demo
-                </a>
+                </Link>
               )}
               {selected.githubUrl && (
-                <a
+                <Link
                   href={selected.githubUrl}
                   target="_blank"
-                  className="flex items-center gap-2 px-5 py-3 rounded-xl border border-neutral-700 hover:bg-neutral-100 dark:hover:bg-neutral-800 transition text-neutral-900 dark:text-neutral-900 dark:hover:text-neutral-100"
+                  className={`flex items-center gap-2 px-5 py-3 rounded-xl border border-neutral-700 bg-neutral-700 dark:hover:bg-neutral-800 transition dark:text-white dark:hover:text-neutral-100`}
                 >
                   <Github size={18} />
                   Source Code
-                </a>
+                </Link>
               )}
             </div>
           </div>
