@@ -57,7 +57,7 @@ export const projects: Project[] = [
 			'Error handling and navigation',
 		],
 		stack: ['React', 'React router', 'Firebase', 'Firebase auth', 'CSS module'],
-		liveUrl: 'https://eventsapp-v9ox.vercel.app/.vercel.app/',
+		liveUrl: 'https://eventsapp-v9ox.vercel.app/',
 		githubUrl: 'https://github.com/Ojfirst/eventsapp',
 	},
 	{
@@ -87,6 +87,17 @@ export const projects: Project[] = [
 		stack: ['React', 'ViteS', 'Redux toolKit', 'CSS module'],
 		liveUrl: 'https://food-order-app-seven-beta.vercel.app/',
 		githubUrl: 'https://github.com/Ojfirst/Food-order-app',
+	},
+	{
+		id: 'IQ',
+		name: 'Native-IQ',
+		category: 'Platform',
+		summary:
+			'A simple website search-engine-friendly where you can find every country details one at a time.',
+		highlights: ['Stock browsing', 'Shopping cart management'],
+		stack: ['HTML', 'CSS', 'javaSript'],
+		liveUrl: 'https://ojfirst.github.io/country.app/',
+		githubUrl: 'https://github.com/Ojfirst/country.app',
 	},
 ];
 
