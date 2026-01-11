@@ -44,7 +44,7 @@ export const projects: Project[] = [
 			'Tailwind-CSS',
 		],
 		liveUrl:
-			'https://automobile-service-schedular-y25f-git-ff2a3f-ojfirsts-projects.vercel.app/',
+			'https://automobile-service-schedular-git-verce-c26712-ojfirsts-projects.vercel.app/',
 		githubUrl: 'https://github.com/Ojfirst/Automobile_Service_Schedular',
 	},
 	{
