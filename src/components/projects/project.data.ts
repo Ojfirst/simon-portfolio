@@ -34,7 +34,7 @@ export const projects: Project[] = [
 		],
 		stack: [
 			'React',
-			'Next.js 16',
+			'Next.js 16+',
 			'TypeScript',
 			'Prisma ORM',
 			'PostgreSQL',
