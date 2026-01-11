@@ -24,17 +24,21 @@ export const projects: Project[] = [
 		highlights: [
 			'Role-based access control',
 			'Automated service approvals',
-			'Real-time appointment orchestration',
+			'Real-time appointment booking',
+			'Services Listing',
+			'Vehicle Management',
+			'inventory management',
 			'Admin panel',
 			'User dashboard',
 			'Email reminder',
 		],
 		stack: [
-			'Next.js 15+',
+			'React',
+			'Next.js 16',
 			'TypeScript',
-			'Prisma',
+			'Prisma ORM',
 			'PostgreSQL',
-			'ClerkAuth',
+			'ClerkAuth (User & Admin roles)',
 			'Resend',
 			'Sooner',
 			'Tailwind-CSS',
@@ -42,6 +46,23 @@ export const projects: Project[] = [
 		liveUrl:
 			'https://automobile-service-schedular-y25f-git-ff2a3f-ojfirsts-projects.vercel.app/',
 		githubUrl: 'https://github.com/Ojfirst/Automobile_Service_Schedular',
+	},
+	{
+		id: 'femayo',
+		name: 'Femayo T&S',
+		category: 'Marketing and Conversation Website',
+		summary:
+			'Femayo T&S, SA next-Generation Marketing and Conversation Website, featuring cutting-edge design with glassmorphism, holographic elements, and cyber-gradient accents.',
+		highlights: [
+			'Marketing and Conversation',
+			'Realtime contact form',
+			'Navigation banner',
+			'cutting-edge design',
+			'glassmorphism and holographic elements',
+		],
+		stack: ['React', 'Vite', 'React router', 'Email.Js', 'CSS module'],
+		liveUrl: 'https://femayo.vercel.app/',
+		githubUrl: 'https://github.com/Ojfirst/femayo/',
 	},
 	{
 		id: 'Eventify',
@@ -60,23 +81,6 @@ export const projects: Project[] = [
 		stack: ['React', 'React router', 'Firebase', 'Firebase auth', 'CSS module'],
 		liveUrl: 'https://eventsapp-v9ox.vercel.app/',
 		githubUrl: 'https://github.com/Ojfirst/eventsapp',
-	},
-	{
-		id: 'femayo',
-		name: 'Femayo T&S',
-		category: 'Marketing and Conversation Website',
-		summary:
-			'Femayo T&S, SA next-Generation Marketing and Conversation Website, featuring cutting-edge design with glassmorphism, holographic elements, and cyber-gradient accents.',
-		highlights: [
-			'Marketing and Conversation',
-			'Realtime contact form',
-			'Navigation banner',
-			'cutting-edge design',
-			'glassmorphism and holographic elements',
-		],
-		stack: ['React', 'Vite', 'React router', 'Email.Js', 'CSS module'],
-		liveUrl: 'https://femayo.vercel.app/',
-		githubUrl: 'https://github.com/Ojfirst/femayo/',
 	},
 	{
 		id: 'Order-app',
