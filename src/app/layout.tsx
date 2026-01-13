@@ -7,6 +7,8 @@ import { websiteSchema } from "@/lib/schema/website.schema";
 import { ThemeProvider } from "next-themes"
 import { SeoPerson } from "@/components/seo/seo-person"
 import { SeoSoftware } from "@/components/seo/seo-software"
+import { Header } from "@/components/layout/header";
+import { SiteFooter } from "@/components/layout/footer";
 
 
 
@@ -108,7 +110,9 @@ export default function RootLayout({
         <ThemeProvider attribute="class" defaultTheme='dark' enableSystem={false} disableTransitionOnChange>
           <SeoPerson />
           <SeoSoftware />
+          <Header />
           <main className="pt-28">{children}</main>
+          <SiteFooter />
           <ToasterProvider />
         </ThemeProvider>
       </body>
