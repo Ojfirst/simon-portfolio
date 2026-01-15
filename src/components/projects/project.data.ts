@@ -3,7 +3,7 @@ export type Project = {
 	id: string;
 	name: string;
 	category:
-		| 'Automotive'
+		| 'Automotive CRM'
 		| 'Platform'
 		| 'System'
 		| 'Marketing and Conversation Website';
