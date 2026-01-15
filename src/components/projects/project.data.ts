@@ -18,7 +18,7 @@ export const projects: Project[] = [
 	{
 		id: 'autocare',
 		name: 'Autocare Service Scheduler',
-		category: 'Automotive',
+		category: 'Automotive CRM',
 		summary:
 			'Enterprise-grade service scheduling and operations platform for automotive dealerships.',
 		highlights: [
@@ -43,8 +43,7 @@ export const projects: Project[] = [
 			'Sooner',
 			'Tailwind-CSS',
 		],
-		liveUrl:
-			'https://automobile-service-schedular.vercel.app/',
+		liveUrl: 'https://automobile-service-schedular.vercel.app/',
 		githubUrl: 'https://github.com/Ojfirst/Automobile_Service_Schedular',
 	},
 	{
