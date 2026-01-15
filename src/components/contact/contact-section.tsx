@@ -128,7 +128,7 @@ export function ContactSection() {
         <AvailabilityBadge />
 
         <motion.a
-          href="https://cal.com/your-username/intro"
+          href={calendarSchema.potentialAction.target.urlTemplate}
           target="_blank"
           rel="noopener noreferrer"
           whileHover={{ scale: 1.03 }}
